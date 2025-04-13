@@ -42,7 +42,7 @@ export default function About() {
           <p className="font-condensed  text-left cursor-pointer   group  flex flex-col gap-0.5 lg:text-2xl">
             <Link
               href={
-                "https://drive.google.com/file/d/1jRl0KOdflHundSLSv0S4X0-qXtXPEp6r/view?usp=sharing"
+                "https://drive.google.com/file/d/1NvqylA5eb5fQlYS1Jmbbewr2UG2QvHC5/view?usp=sharing"
               }
               target="_blank"
             >

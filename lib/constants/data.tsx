@@ -21,8 +21,7 @@ export const INFORMATION = {
       github: "https://github.com/harsh3468",
       leetcode: "https://leetcode.com/u/hkg3468/",
       linkedin: "https://www.linkedin.com/in/harsh-kumar-goel-366109152/",
-      resume: "https://drive.google.com/file/d/1jRl0KOdflHundSLSv0S4X0-qXtXPEp6r/view?usp=sharing",
-      
+      resume: "https://drive.google.com/file/d/1NvqylA5eb5fQlYS1Jmbbewr2UG2QvHC5/view?usp=sharing",    
     },
   },
 };
