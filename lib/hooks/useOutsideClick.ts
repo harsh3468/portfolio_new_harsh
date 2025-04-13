@@ -5,6 +5,8 @@ export const useOutsideClick = (
   callback: Function
 ) => {
   useEffect(() => {
+    if (typeof window === 'undefined') return;
+
     const listener = (event: any) => {
       if (!ref.current || ref.current.contains(event.target)) {
         return;

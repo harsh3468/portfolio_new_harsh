@@ -4,10 +4,32 @@ import OrbitingCircles from "@/components/ui/orbiting-circle";
 import { skillsData } from "@/lib/constants/data";
 import { useWindowSize } from "@/lib/hooks/useWindowSize";
 import { motion, useScroll, useTransform } from "framer-motion";
+
+type CircleConfig = {
+  radius: number;
+  size: number;
+  duration: number;
+  reverse: boolean;
+};
+
+type CircleConfigs = {
+  innerCircle: CircleConfig;
+  outerCircle: CircleConfig;
+  outmostCircle: CircleConfig;
+};
+
+type SkillData = {
+  name: keyof CircleConfigs;
+  skills: Array<{
+    skillName: string;
+    skillIcon: React.ReactNode;
+  }>;
+};
+
 export function SkillCircle() {
   const windowSize = useWindowSize();
   const [isClient, setisClient] = useState(false);
-  const [circleConfigs, setCircleConfigs] = useState(
+  const [circleConfigs, setCircleConfigs] = useState<CircleConfigs | undefined>(
     getCircleConfigs(isClient ? window.innerWidth : 0)
   );
 
@@ -19,7 +41,7 @@ export function SkillCircle() {
     setCircleConfigs(circleConfigs);
   }, [windowSize]);
 
-  function getCircleConfigs(width: number | undefined) {
+  function getCircleConfigs(width: number | undefined): CircleConfigs | undefined {
     if (!width) return;
     if (width < 640) {
       return {

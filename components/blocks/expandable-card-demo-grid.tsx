@@ -20,6 +20,8 @@ export function ExpandableCardDemo() {
       }
     }
 
+    if (typeof window === 'undefined') return;
+
     if (active && typeof active === "object") {
       document.body.style.overflow = "hidden";
     } else {

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import SectionHeading from "../section-heading";
 import Heading from "../common/section-heading";
 import { useSectionInView } from "@/lib/hooks";
@@ -242,27 +242,25 @@ const GlassMorphedDrawer = ({
   ...props
 }: GlassMorphedDrawerProps) => {
   const { width } = useWindowSize();
-  if (!width) return null;
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  if (!isClient || !width) return null;
 
   return (
     <>
       {width < ScreenSize.MOBILE ? (
         <Drawer open={open} onOpenChange={onOpenChange} direction="right">
-          <DrawerContent
-            className="h-full w-full bg-black rounded-md overflow-hidden bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-40 border-none    px-6 sm:px-[20%]"
-            showPill={false}
-          >
-            {props.children}
-          </DrawerContent>
+          <DrawerContent>{props.children}</DrawerContent>
         </Drawer>
       ) : (
         <Dialog open={open} onOpenChange={onOpenChange}>
-          <DialogClose className="outline-none" />
-          <DialogContent className="border-none bg-transparent rounded-2xl bg-black  bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-40">
+          <DialogContent className="sm:max-w-[425px]">
             <DialogHeader>
-              <DialogDescription className="border-none">
-                {props.children}
-              </DialogDescription>
+              <DialogDescription>{props.children}</DialogDescription>
             </DialogHeader>
           </DialogContent>
         </Dialog>

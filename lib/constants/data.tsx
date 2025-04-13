@@ -5,7 +5,7 @@ export const INFORMATION = {
   CONTACT: {
     MESSAGE: (
       <>
-        Thanks for stopping by. I’m currently looking to join a dynamic team where
+        Thanks for stopping by. I'm currently looking to join a dynamic team where
         I can get to work on challenging products which really make an impact to the firm's growth. If you think we might be a good fit
         for one another, send me an{" "}
         <Link
@@ -60,7 +60,7 @@ export const projects = [
     description:
       "Desi Tadka is a restaurant in Roorkee, Uttrakhand, India. It is a traditional vegeterian and non-vegeterian restaurant which was started by ex-chef of Radisson Blu.",
     longDescription:
-      "Desi Tadka is where traditional Indian flavors meet modern digital convenience. From placing an order to tracking deliveries, every touchpoint is crafted to offer a smooth, user-friendly experience. The platform goes beyond food—it’s a celebration of culture, taste, and technology. Under the hood, Desi Tadka is powered by a microservices architecture, ensuring each feature—from order processing to customer feedback—is modular, scalable, and efficient. The backend stack includes Node.js and NestJS for fast, structured service development, with Java handling secure, high-performance workflows. Cloud-hosted databases manage everything from menu items to user preferences, while messaging queues coordinate services like real-time order updates and delivery tracking. Whether it's dining in, taking out, or ordering online, Desi Tadka delivers a tech-savvy, flavor-packed experience every time.",
+      "Desi Tadka is where traditional Indian flavors meet modern digital convenience. From placing an order to tracking deliveries, every touchpoint is crafted to offer a smooth, user-friendly experience. The platform goes beyond food—it's a celebration of culture, taste, and technology. Under the hood, Desi Tadka is powered by a microservices architecture, ensuring each feature—from order processing to customer feedback—is modular, scalable, and efficient. The backend stack includes Node.js and NestJS for fast, structured service development, with Java handling secure, high-performance workflows. Cloud-hosted databases manage everything from menu items to user preferences, while messaging queues coordinate services like real-time order updates and delivery tracking. Whether it's dining in, taking out, or ordering online, Desi Tadka delivers a tech-savvy, flavor-packed experience every time.",
   },
   {
     title: "Web Builder Prototype",
@@ -131,3 +131,60 @@ export const words = [
   'Airflow',
   'Kafka',
 ];
+
+export const skillsData: Array<{
+  name: "innerCircle" | "outerCircle" | "outmostCircle";
+  skills: Array<{
+    skillName: string;
+    skillIcon: React.ReactNode;
+  }>;
+}> = [
+  {
+    name: "innerCircle",
+    skills: words.slice(0, 8).map(skill => ({
+      skillName: skill,
+      skillIcon: <span className="text-sm font-medium">{skill}</span>
+    }))
+  },
+  {
+    name: "outerCircle",
+    skills: words.slice(8, 16).map(skill => ({
+      skillName: skill,
+      skillIcon: <span className="text-sm font-medium">{skill}</span>
+    }))
+  },
+  {
+    name: "outmostCircle",
+    skills: words.slice(16).map(skill => ({
+      skillName: skill,
+      skillIcon: <span className="text-sm font-medium">{skill}</span>
+    }))
+  }
+];
+
+export const links = [
+  {
+    name: "About",
+    hash: "#about",
+  },
+  {
+    name: "Projects",
+    hash: "#projects",
+  },
+  {
+    name: "Skills",
+    hash: "#skills",
+  },
+  {
+    name: "Experience",
+    hash: "#experience",
+  },
+  {
+    name: "Testimonials",
+    hash: "#testimonials",
+  },
+  {
+    name: "Contact",
+    hash: "#contact",
+  },
+] as const;
